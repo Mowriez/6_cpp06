@@ -12,27 +12,36 @@
 
 CXX = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 NAME = convert
 
-SRCS =	ScalarConverter.cpp \
-		main.cpp
+INC_DIR =	./inc
+SRC_DIR =	./src
+OBJ_DIR =	./obj
 
-HDRS =	ScalarConverter.hpp
+CPPFILES =	ScalarConverter \
+			exceptions \
+			main
 
-OBJS = $(SRCS:%.cpp=%.o)
+HEADER =	ScalarConverter \
+			exceptions
+
+INCL =	$(addsuffix .hpp, $(addprefix $(INC_DIR)/, $(HEADER)))
+SRCS = 	$(addsuffix .cpp, $(addprefix $(SRC_DIR)/, $(CPPFILES)))
+OBJS = 	$(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(CPPFILES)))
 
 all: $(NAME)
 
-%.o: %.cpp $(HDRS)
-	$(CXX) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INCL)
+	mkdir -p $(OBJ_DIR)
+	$(CXX) $(FLAGS) -I $(INC_DIR) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CXX) $(CFLAGS) $^ -o $@
+	$(CXX) $(FLAGS) $^ -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)

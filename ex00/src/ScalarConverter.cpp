@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "../inc/ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter() {
 	std::cout << "ScalarConverter default constructor" << std::endl;
