@@ -10,3 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <exception>
+
+class WrongArgumentNumException : public std::exception {
+	const char*	what() const throw();
+};

@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exceptions.cpp                                     :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtrautne <mtrautne@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 18:22:30 by mtrautne          #+#    #+#             */
-/*   Updated: 2023/11/11 18:22:30 by mtrautne         ###   ########.fr       */
+/*   Created: 2023/11/13 14:35:00 by mtrautne          #+#    #+#             */
+/*   Updated: 2023/11/13 14:35:00 by mtrautne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exceptions.hpp"
+#ifndef UTILS_CPP
+# define UTILS_CPP
 
-const char*	WrongArgumentNumException::what() const throw() {
-	return ("Error: Wrong number of input arguments.");
-}
+# include <string>
+# include <cctype>
+# include <iostream>
+
+enum	InputType{CHAR, INT, FLOAT, DOUBLE, UNKNOWN};
+
+InputType	checkType(std::string& input);
+bool		isOnlyNumerical(std::string& input);
+bool		preCheckValid(std::string& input);
+
+#endif

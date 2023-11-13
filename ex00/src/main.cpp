@@ -15,11 +15,14 @@
 int main(int argc, char **argv) {
 	try {
 		if (argc != 2) {
-			throw wrongArgumentNumException();
-			std::cerr << "Error: wrong amount of arguments!" << std::endl;
-			return (1);
+			throw WrongArgumentNumException();
+		}
+		else {
+			std::string	input = argv[1];
+			ScalarConverter::convert(input);
 		}
 	}
-	std::string	input = argv[1];
-	ScalarConverter::convert(input);
+	catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 }

@@ -12,7 +12,7 @@
 
 CXX = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g
 
 NAME = convert
 
@@ -22,9 +22,11 @@ OBJ_DIR =	./obj
 
 CPPFILES =	ScalarConverter \
 			exceptions \
+			utils \
 			main
 
 HEADER =	ScalarConverter \
+			utils \
 			exceptions
 
 INCL =	$(addsuffix .hpp, $(addprefix $(INC_DIR)/, $(HEADER)))
@@ -33,8 +35,10 @@ OBJS = 	$(addsuffix .o, $(addprefix $(OBJ_DIR)/, $(CPPFILES)))
 
 all: $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INCL)
+$(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(INCL) | $(OBJ_DIR)
 	$(CXX) $(FLAGS) -I $(INC_DIR) -c $< -o $@
 
 $(NAME): $(OBJS)

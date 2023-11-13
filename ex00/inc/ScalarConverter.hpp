@@ -16,6 +16,7 @@
 # include <string>
 # include <iostream>
 # include "exceptions.hpp"
+# include "utils.hpp"
 
 class ScalarConverter {
 	private:
