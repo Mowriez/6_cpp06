@@ -34,10 +34,10 @@ void	ScalarConverter::convert(std::string& input) {
 
 	switch(inputType) {
 		case CHAR:
-			std::cout << "Input is a CHAR" << std::endl;
+			convertChar(input);
 			break;
 		case INT:
-			std::cout << "Input is an INT" << std::endl;
+			convertInt(input);
 			break;
 		case FLOAT:
 			std::cout << "Input is a FLOAT" << std::endl;
@@ -45,6 +45,8 @@ void	ScalarConverter::convert(std::string& input) {
 		case DOUBLE:
 			std::cout << "Input is a DOUBLE" << std::endl;
 			break;
+		case SPECIAL:
+			std::cout << "Input is SPECIAL" << std::endl;
 		case UNKNOWN:
 			std::cout << "Input is unknown." << std::endl;
 			break;

@@ -16,11 +16,16 @@
 # include <string>
 # include <cctype>
 # include <iostream>
+# include <iomanip>
 
-enum	InputType{CHAR, INT, FLOAT, DOUBLE, UNKNOWN};
+enum	InputType{CHAR, INT, FLOAT, DOUBLE, SPECIAL, UNKNOWN};
 
 InputType	checkType(std::string& input);
 bool		isOnlyNumerical(std::string& input);
 bool		preCheckValid(std::string& input);
+bool		isSpecialLiteral(std::string &input);
+
+void		convertChar(std::string &input);
+void		convertInt(std::string &input);
 
 #endif

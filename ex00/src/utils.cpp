@@ -15,13 +15,15 @@
 InputType	checkType(std::string &input) {
 	if (input.length() == 1 && isalpha(input[0]))
 		return CHAR;
+	if (isSpecialLiteral(input))
+		return SPECIAL;
 	std::string	newInput = input;
 	if (newInput[0] == '-') {
 		newInput = newInput.substr(1, newInput.length() - 1);
 	}
 	if (!preCheckValid(newInput))
 		return UNKNOWN;
-	if (newInput.length() > 1)
+	if (newInput.length() > 1 && newInput.find('.') != std::string::npos)
 	{
 		if (newInput[newInput.length() - 1] == 'f'
 			&& newInput[newInput.length() - 2] != '.') {
@@ -59,4 +61,32 @@ bool	preCheckValid(std::string& input) {
 			return (false);
 	}
 	return (true);
+}
+
+bool	isSpecialLiteral(std::string &input) {
+	if (input == "-inff" || input == "+inff" || input == "nanf"
+		|| input == "-inf" || input == "+inf" || input == "nan")
+		return true;
+	else
+		return false;
+}
+
+void	convertChar(std::string &input) {
+	std::cout << "char: '" << static_cast<char>(input.c_str()[0]) << "'" << std::endl;
+	std::cout << "int: " << static_cast<int>(stoi(input)) << std::endl;
+	std::cout << "float: " << static_cast<float>(stof(input)) << std::endl;
+	std::cout << "double: " << static_cast<double>(stod(input)) << std::endl;
+}
+
+void	convertInt(std::string &input) {
+	if (input.length() == 1 && !isprint(input.c_str()[0]))
+		std::cout << "char: Non displayable" << std::endl;
+	else if (input.length() == 1 && isprint(input.c_str()[0]))
+		std::cout << "char: '" << static_cast<char>(input.c_str()[0]) << "'" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << static_cast<int>(stoi(input)) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1)
+	<< static_cast<float>(stof(input)) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(stod(input)) << std::endl;
 }
