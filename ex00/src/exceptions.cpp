@@ -15,3 +15,7 @@
 const char*	WrongArgumentNumException::what() const throw() {
 	return ("Error: Wrong number of input arguments.");
 }
+
+const char*	InputInvalidException::what() const throw() {
+	return ("Error: Input not of valid type or format.");
+}

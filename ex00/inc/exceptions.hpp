@@ -10,8 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <exception>
+#ifndef EXCEPTIONS_HPP
+# define EXCEPTIONS_HPP
+
+# include <exception>
 
 class WrongArgumentNumException : public std::exception {
 	const char*	what() const throw();
 };
+
+class InputInvalidException : public std::exception {
+	const char*	what() const throw();
+};
+
+#endif

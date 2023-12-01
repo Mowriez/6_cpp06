@@ -33,24 +33,28 @@ void	ScalarConverter::convert(std::string& input) {
 	InputType	inputType = checkType(input);
 
 	switch(inputType) {
-		case CHAR:
-			convertChar(input);
-			break;
-		case INT:
-			convertInt(input);
-			break;
-		case FLOAT:
-			std::cout << "Input is a FLOAT" << std::endl;
-			break;
-		case DOUBLE:
-			std::cout << "Input is a DOUBLE" << std::endl;
-			break;
-		case SPECIAL:
-			std::cout << "Input is SPECIAL" << std::endl;
-		case UNKNOWN:
-			std::cout << "Input is unknown." << std::endl;
-			break;
-		default:
-			break;
+	case CHAR:
+		convertChar(input);
+		break;
+	case INT:
+		convertInt(input);
+		break;
+	case FLOAT:
+		convertFloat(input);
+		break;
+	case DOUBLE:
+		convertDouble(input);
+		break;
+	case FTNAN:
+		printNotANumber(input);
+		break;
+	case FTINF:
+		printInfinity(input);;
+		break;
+	case UNKNOWN:
+		std::cout << "Error: Input is of unknown type." << std::endl;
+		break;
+	default:
+		break;
 	}
 }
