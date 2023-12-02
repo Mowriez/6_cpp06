@@ -15,12 +15,14 @@
 
 # include <string>
 # include <cctype>
+# include <cmath>
+# include <cstdlib>
 # include <iostream>
 # include <iomanip>
 # include <limits>
 # include "exceptions.hpp"
 
-enum	InputType{CHAR, INT, FLOAT, DOUBLE, FTNAN, FTINF, UNKNOWN};
+enum	InputType{CHAR, INT, FLOAT, DOUBLE, UNKNOWN};
 
 InputType	checkType(std::string& input);
 
@@ -37,8 +39,5 @@ void		convertChar(std::string &input);
 void		convertInt(std::string &input);
 void		convertDouble(std::string &input);
 void		convertFloat(std::string &input);
-
-void		printNotANumber(std::string &input);
-void		printInfinity(std::string &input);
 
 #endif

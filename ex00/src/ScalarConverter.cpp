@@ -45,12 +45,6 @@ void	ScalarConverter::convert(std::string& input) {
 	case DOUBLE:
 		convertDouble(input);
 		break;
-	case FTNAN:
-		printNotANumber(input);
-		break;
-	case FTINF:
-		printInfinity(input);;
-		break;
 	case UNKNOWN:
 		std::cout << "Error: Input is of unknown type." << std::endl;
 		break;
