@@ -14,13 +14,13 @@ CXX = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g
 
-NAME = convert
+NAME = ex01
 
 INC_DIR =	./inc
 SRC_DIR =	./src
 OBJ_DIR =	./obj
 
-CPPFILES =	Data \
+CPPFILES =	Serializer \
 			main
 
 HEADER =	Data
