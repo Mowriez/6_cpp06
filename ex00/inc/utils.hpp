@@ -28,8 +28,6 @@ InputType	checkType(std::string& input);
 
 bool		numericalPreCheckValid(std::string& input);
 
-bool		isNotANumber(std::string &input);
-bool		isInfinite(std::string &input);
 bool		isChar(std::string &input);
 bool		isFloat(std::string &input);
 bool		isDouble(std::string &input);
